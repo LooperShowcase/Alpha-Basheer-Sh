@@ -1,0 +1,296 @@
+
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      html {
+        box-sizing: border-box;
+      }
+
+
+
+      *,
+      *:before,
+      *:after {
+        box-sizing: inherit;
+      }
+
+      .column {
+        float: left;
+        width: 33.3%;
+        margin-bottom: 16px;
+        padding: 0 8px;
+      }
+
+      @media screen and (max-width: 650px) {
+        .column {
+          width: 100%;
+          display: block;
+        }
+      }
+
+      .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      }
+
+      .container {
+        padding: 0 16px;
+      }
+
+      .container::after,
+      .row::after {
+        content: "";
+        clear: both;
+        display: table;
+      }
+
+      .title {
+        color: grey;
+      }
+  
+</style>
+  
+
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAB4FBMVEX///8AAADb/gEzMzMAnwCK5QGw3AAAyQCZ7AAAci8A3ADJ/zf///4wMDAAAAMtLS0oKCgAnAAkJCQAmQD4+Piurq7x8fFAQEC/v7/p6ellZWXf399ZWVlMTEx1dXWWlpbNzc0ODg7MzMxISEhtbW2zs7MdHR1RUVGGhoadnZ05OTnY2NiIiIibm5t5eXldXV3G/yTR+wMAbTEAwgBHWRUAhgAAzwB+vgUB4wD1/sjx/q/m/me6+ScBki+g7R633QL6/uICeisAaBZqaG/o/56Bi2atzlNcajZ4mSHc/27c/off/pT2/e/O/lGm0h0vPwDX/zZbchu56TPV/2ry/s7A7cal7pBe1mCHriPR8tFD1wCFpiVsiR6k6aU20DgPFgcgJwmbwytIXUd65yFzhkIARwA0Pwyv2jGz/BofOwEDIgU2eBOXvig3VwBnlggNCRoAcwAAMAMmICwGPgZYnlhc3Fo4VAdla1Wv4F923XMfMge6+F4EUwK17LRGbAYBGQNUggaJzwBGkwRpoQYosgNWxwPp/YADjTDG5Vrw/qW45rrN86K92sRxu36d6j+ZzKSu5Yckqj6Q05ZhuWOktEZIvQNZaAaFy4XF48Wu3a6Ou5+vz7lRt1AzhVB4rIpZmG2YViBkAAAVdklEQVR4nO2djX/T1rnHdWw5TmJbkm3Jlvz+/o4dyAsNzYvhcjcoHg2UtrxtgeUCZbflZuvadYxSGE7ZpWx3wFjpy739V+95kyzZcmIntpLso99WYtmydL56nvOc5xwdHTOMLVu2bNmyZcuWLVu2bNmyZcuWLVu2bNmyZcuWLVu2bNmyZcuWLVu29klKOrrfRRijlBIjRkSlUt3vgoxNpTiTY6plJbTfBRmXoqBaC8mykvyX9dMkyEWZaOrQ8qViILP9Ho0s/Ae6aFWxpEAjVTWTA0hCfru9QJKJhsRo5vB5qRgBqkrme3i9jJcplSoJAGpJScRvHCJlwoQuzWdj9f67iYkyABz4N9G6ko1KGDBdrmbkfLmsc0AvEnnVXDxx+t9/9nO435mzZ8++c+7EYvMQGVHEBuQFYsh416etS6fP/mIG6vy7awBcuOiBmsF67xJzSChlYJAuTrbe/+A9hIOo7nCeM+C2h2rGc67JHBZAJk/REmn8p0zDSOvZhwuuGRXpIrhzGYCLBG/mvUXqvftb8kFVpoT0rxOX+8qH7tmrSx4NkPv4GgDXCd87zUPDRiRBrEhGKicIYQUW/5e/crvdGxqf5w44cx2s3+jweQ8VYhViZeKgnCWEUuuXEM+9sNIBvAluzwHu9k0IiPgOnwoA5GpapPn1AgK82uHzXAYcx4ELFzwz7zUPW1tPhEKN1Amm8wsGD0WA8H8X5mY8l0gbudvzhKqZ1D71u0qwwdcAOc7t1nkorIMcfPfdM+dP763yhSJ5RSyBsDyyYg8hUd8eckF9FfRcXEeA4OZ/NJk9mA+mhiTlPQJrxKiKPYzKYY0P3Jpe0gF6biOrgvO/3uMZogBgBw0pjFgeQYmHlAiy8TQFBEE94MX7+O2bc3sdmQGxDO58Ih9VduiGjkEhzYBQdzS8j898dBdGUe7uz/5Q3mP7J6cgmFyOpSNoa9tO6FikYE+E//zm1n9ehoa7c+fjOdgCAvDJPRhGPznzX+G9nkHC/6ALiIwoWd0BU/Lfbv4GE/528+HcnGpPCM19xXHr67/be8XBhHV03LAoMkVrxwi8onwLbAaD85ubm/PXrt9XvVX7kxzBSbBf4oESIZXKA4vHeTLgwYNPUdaC/lOxOhpJWKhB56xKsAvqQxEVjOKQQ+j3BA3XRfR/9HJdtWF4NA6VAtkMZJMTuMmojeSYA8rLfDbP9dgN3PgcBVHwh5HF9TBpDhXkn1Vrbwp8uPCgFxBwd+9x3MMvRncaBWAsEbpESBrdYQfQH91sb9VDiPePH//TKHuBVRyw5JwsW9safuA2NSFuG5EFR9hTEvNyCrYXOWtd9MtZ97Q5INTvRt7TUSy+HeBlrswuTLv7AQLAH6qhCjN53QvTb7F9bdg7dro3WXyzA3X1Ppyenn5rnlY7U8Q+dzF2o5QwyqMNIAj45TQi3OS2QxxVhzzUQEcb0cEGVWsaEz6ggOvmiKNxrSo5mMWDNJ8Rwk8J2VfvmhOmRxH96Kj6kREcaghhH4WEvyVnv/uwX7hJ7fFE1YiTHKg4glIPIe80JfyKOOnDR/0I99Z7kuvqTYOCpU29l/mAEk7TbsWTR11emo4X1JdxrWxiKJqCaVcepidR1E8Xq1K9GC4EiknUcxCjcjmZTJYlOVWtRqPVjJSC3fp690GsAWypgG1KcfyegS+Sl8K6TRQiFLmWLej3ycb0u4Bk1106pEaoQEdiI1byIf1RddJN3Eu6cX/l8V2gdoAbsiI59QWNM7VwrK8XUx0pm7yZp0HGckDNhNOfpv/8eJLoIe4Ify6FQrW0sZxyaic8KClpRkjvFlg+mK+ZcPYWx63f/+QJRrz36PjjydNKCRUpnOu4YCRkUnb4tnGzfMRknxC5oWVxGNWZcIG9hV3zITXj4+P3UJECSVlvxmjclDBj3CxJSXJRnEW0v5CToqJIRp/QPUlrpQXSNvsVqnnccUqIR7hr0WrOQJIDppJKhs2YXIYuGS6HxHIgnFcThVARfWbx2JqX0UzoD+LCrU+qulCrMhmDybLVhAGkE4LCXc6r1BgRNfAgntKfLhMDCWsBGeb9jgk3cdk+0Qi/YeQAAIkKgctFknK+YuRodF6KxviqhFP5UhpEDsDk0880E7KncNnuaYQM44vLUUxRDDHRsqHFw+rcLAZS1fBJJhmrl1P7DYfk1UxICDnuSceEDL7Fh2zFiNkePGC4WRxmkH3DsiJi7Xjevd2AHELPVEKWxV7KaYFmEhWApCYBhuHNAIE+c1FkEB5iRLV1zqJhEdVJZ/0s+wSPdKtt/ju4BDiy5BlTC4K0vo2QmKF6yKfXrCD0dpwUmrB9HOVpX6kmpLPxKqgBq5sCgoo+vYkNd+41R3PkPGa6QgHdfta/9RjdRbtLAf9Gx0dDES3b6lEpr98aKhlbdDhOjAepS7S5f6vNsv6NSZR4q43FCc2Jopk+gGr2WS8fqRcrw3X51hyOt8fA0y2vVg2hk/phFsPRnG1pyaOrJIqzD2EKJTiR4UdvvMwlh8OxNkKS/tLFmTbMtiHh55MraHbCO/q9xGTalDAkgEZqV+eFJnQ4mnsv/45SqyFy0i2Ya0PC+2RO5aJxR7FiAlhgqru8B7+IAB2LO++4Z9ERqGk/IZxEt0TJxN9W155VE8LdZ5jYhI7Teyv8QKKBZhZVQ9fk5ArqW+AJJmd7GisTwl2OEHuZExjQklDzmeakLOtaQbPWOEw48989hCY1cbd9dS8BtCTULHQiaRvGlwsaYbOHsHdoprDbs35NCR3dVWEM0pp7dvbqmscDUFKDI03vDd9aF1+gvCsTwsM2VUBH73UcuWhz72/jSaTXUMnR7GbPe727GtKXdFKSE7uaROFVwwzSpb2Wf0fRIRp21u12uzxrN1DmfYNUwx4pBkL0z66Gv70dH0XNxbhtSJpDxIfmyV7EToq8dMbs4vYkNrubZHCpA2hBZopGMBZesJTwDsCId0xaQ6SeIajUbk7pXTMQjtuGsPvbXn6q2tAD1jkwt37G4/mFWfe7ZxRxV2Nmf1nVEZpUhhHry4Xg0+VlDOhe8qytXwdg7vK6aaBhmIaerlAA2zzY1l+nJyYMhGO34fzy8vILjRBcvg1ue252pd2qaC9YiDca8bBQ2FV7vzihJzz6zdgJnyNCViX0zN28DuZQoDFNGJOBRjKfykiJCo6ku7nl3YSAE0c1wo+sIXza1ggvei7jvHvGNMaJjJjPCR1HHXYk1EsAO4RHXd+MgGF7YcJZjRA9MOLp11gwdFRql6EUGqu1aiRcsYCwhbzUrSckncOm+e7ynghbdzDgxKpmQtf4W3xE+MKEsF9GbCAcsh6qgBrhpMtlwXOn88tP2V5CTz9CQ4MxzHmgBS9OGAmXXC5Xc+8EO6kTaPSEK/2urH5UcZj7nF61DnYIoY+6XK3x2/D3y8uUcLbzeNPkSr/Jsvrse6ieRXNCJ9VHXS4LHs38qxZKO0+orUz2tSET6BAOPoThxQ29kRD5qOtvI2HYXv+zvKwSulQLTm5DqMu+h0hpTk90E2IfdY1w5nhfwQaRAqqPUa4Qwj6MnfkHg3UOUQbf+stENyEBtKA5xM2FSkiehP1ocltC7Q7NgGM08DCXJrpFKyFqLCzQ8vKCiogAlzp3Ds3UiaWD9n6953oAJ2AyQ2TBQJSX+WvQrSOkgJOtPohRtR76Bjg0vj1xsRdwdYkCWhFoGOaHDuGSBjhp3k6JdVlU8rnKYLUQ1cB3evkmVh9TQNffLbkJ3AqqXgobxEkdocnJUeJdyZXlVCq/U78CV+QTJnwQcIECbr0ZC1GPXmg23NBMOHm2afL4SApokxFTOx0VfnlxzRzQfZUSshY93fBSI9zSACdnHF83e/YUkupIzQ7PWKKSL645HKumgCph+5VF62lcUVv8WVZP6HC83WQMSwrIgKF32Labl0b2P4EH1HoJESAl3Ap+Z9FcDK9qQjbo0giXyI2TE17dshCxGJPe0UfxQi/naPeoh3B1A9cGTOj3W9BWEH1AANvkBiLRitoN/7rTKIMknbnGb3c07+Lb2jBMN+HqllsjZP2vxk6mFqmFzrqA7iC+7ripbsTvHIL0wm6FOnO2p6XQVpDyLupG7LsJVye2aALsck22/UGLIimerIArIVKH8Ki+pI63T7SYKgiRic3p3hvbGK954m2HUatGQLU6QMLXQZa18EGxZ7PIR+ldYFNCpH+AZqJfvtZaPN1N102IYwzWAooyLIwzFupXbjQVAxJ23HSmp7jX5xz4YYyfL15qkqTO22peWjxx+mszOCwdH62COMOfhIAs27JyZZsviY/q3XSpp7g3rt3EyxCsmqDsRNgxICLcQNMivrV07R5vmwLq3LS7tEe5m/jx9Y8HB+wQbrn1hMhf/BaM0OgAmWd+iqiLpl018TyHHvbi/jkEoMPEgO6FNnLR4LfW4WFE74seN4UR3cB4jTxrMgzgUcJ31Qg4hZ2lX/dsbHpDjahr9F1Gxn/iSnh+GMJVXRuoJU7HTiITvrSYD+pHitjWE7pcKxrjDUQ4lI86Vnv43MFjx+bhdfRbD8i0qJd2clPaxaF2XEVOyt0cirCbb8H99NjUFKyG1qUzer0kRvR3GRExorbxPF6iZoiWwnHU1WW/hdmTEHDKb2FGqhPMK6mf+ruNSJwVzbThBo8zR5dcrqtdgCzim0LVcJ9WsWtRwtcmhC5XGjnptUHx8HeNgLPLGHDq6T75KNJ3wf5GdD1+9MnjlaXebLWHbkYdKTQQLrRPEsBj836Lm8KOvMwrv7Em6vi4+08eP+SOw0q5NNMXE9pO9x2dky7MPiV8qBr+uJ9rT7wwGrFT2s/JikrH1dizsgRBO5qZWVoxOrWRkJ3SAE+ylrf1erWM4dTV3iDlfkIAuUfdFNtJ42t3+Kam5q/s73KuV3BV9G9QRDb4mjjpQ7IyFhgC8OqssQISnXq+v4Be5v2gPjvdCvr9rzdcrncfHb+BGe8Na0LIZwD8YR/pGDJOjQOq1mKg18H2xiOw/gSvhcUNDLiBUhjWyDd16vv9BSQiiDTYbOGunJ/9M+Aefo6q4sBGvOpuzxvxDgigl1pRDTYsaUBYdpPDa7atD2rC4MluvoMBiKPAs2CnF7UVVDuOtwYPp1uv20+78TDgAVlz2Mu80cVTVu39B3H/kOO2dqRjYXzq4dv3IKMTvNAtxEWq4oZmxAfYhtwt6MJbWxsmjong/H58RZ72Ej7fb66O8J0H2NGgVbGtGpEl62RwQYSBQdrt9mso+AfHI0qH7N1jwP9tHbh1218Gg6QqujTCW2Rll011m0DpyVR118JT/3fA6BhSGSnia638m+ixL+4Uu5N6TPjDQbMfUesVHdHoFH1+88Gnt4L90ahOGg3400H9OShkRozo2pnJoHkD39TBiaFdwm3Xty6jnw4kvQkPYg3UCU0X+cJl8NMBtHxM56AH/ZegkB2bf9LH050V1PE9Zw7Hbyc0v9Alb4P66KlTPx2a37lCOc6518EBzTh/jMSX7y2bhrBnecn0pjev2EEggxjvp+few+GeRrWevfIHd6LchHg/HNT2bwdhk7x5+aPfH+zJ0pDQ++yr75+LOAYfOvsxdCoe+tt69vLHF2h0AwrlpPgv6//x2+9ah6fu7axW68qb978jevbmSmtfB0FHLC9jPkPae0h905YtW4dWogKl5qWh0M6Lt41H0TBUBcrpdAbovOaQlCzy2URZP1G9Wo77KvE6LnCyIAhCQFOhwcTShTRVQf1JnJAzXSiksyS3SZEPAfmRByVbKKAvRixJfJSCT5OAe3JRvhDgfT4+0FkwPZRNo7d8QjqiMKEK7/T5nJr4hJLgO5sFdW1ZKQt3Esj6SiGpgb7hy5LF6qQiOoCQsKTnIRdIwaBRChV0xkganpwPCKhEpATVHHrLFwhAjkCESQagAQSn9rVAWkqSTR6/LeSwacQyvgoBYra8E23xhFcsk92tWTAyRctay0uSBItWRsS+hFSGFuArErJqPoDeislyHSLysbIMlSRWqxyB35JShJCP5NHbPvLDRqEi3sWXw1vVGLZhHPOKqSzZsuK3yERSVL5BHSaE/Q9d+BwqbAEtmVBC5edjsALiF3FkIjFOLERm0pbwQQoyU4Z7+MLYNHKYeHKAPIRZIxeB/rQCulZOHz/kAn27kxIgtYeu5kisEZAZEV9mZ0FhZLyHUNJ9CCsrKX6F/FIMNpBTkMRaBZYbHyoTJlbmsQ1DEXIh68SB6z6yZckITpQQCuRh0GgMX9ywxCg54mRlYkKnkGSYhPohqkm4XpVwGeU4qWSZFIwnPPZs5kiDBqMAjldyhVxI6pf0kmStIAzReijJMrz2tYCPREeGeK8vmyrhS+ALRxmFeCafhe1BtEjK2MAHIeGKDxRglA0TwyTUWOSMIZsm8UufM0VOWvGpV238gDRkOGGATIoKiX98UVZtKBQVer2LDPVX4tHkYz6hI3TiRsQXQO+JkuCkRsRXIUpqJf2ddtVpR/uDJ+YSa9q1dkqhaoSWQxTJK76hFAViwxCj0DLzaL18UmI+oifki7EKMhS8AlFopUqR7lNFXopf+0h1J1vY38evMm3KYP4RVn1LgAFBwhXHV8znw6Q0SRggeNVhVVra2pGDCGVS3YRSiKlVfLxUx8fgkym4B3lZx5FJqZGtUsoKQhrFE0ooBE2TxBFUqClMGYPxOSWP2zVfVqZhiNSeKiXM6A4CP8hgY6ZlFHaFpHoZoP0Z4pcFUvNCNFBb8UNWtJbxOZJNig21ZaNFSkepC6LaJOF6GEClVLJ6wpxmwwJFRd8WAtT9UQQlXh0gITsj6L89XskJUj/UfDmB85eKQsMdii+kufBlaaQhwVIhmalAon+V1MMCwxAfSBAgNXnl4yK9YDxdZSJn2Bqr1JBZV9P8CM5b6pKEwkQAN9cyTkvDySRuD9MEKqYvIyUMR7BH8zw6CspuKCO8KEqDpnm1Wi0pk6wN5kl5qZwfc7MfpSllrrPoPTIUH4ANo69QS+H3ygAhCgLK49J0JYw4uTKktZCoP/KkA1GXiz6+Bq+ZQi0XqebDatshBCoZKUw2YDZfKKbGS8iEAgJSWlvgQjySDgio91TwldTcP+QsoJoDe1Q+ul+mIvA8L8RJWt0QYNeK9/FIhQTMcQKFEnIKqY6PXihLCXwW9B1ekDK1MM+rPbbkmLtQciyXqNdLJV0HXJGT9Vg429AHulQ+Gff5sjntPTEXaTQasSJZzCxayWaz8XgxFovlkrLCSLlcAkeRUAmrXo7WkRKJXC4XiUBHiRWL8Ww2HM5mKwdgzX2q/RqGsGXLli1btmzZsmXLli1btmzZsmXLli1btv619f/XRAAmR9P6hAAAAABJRU5ErkJggg==">
+
+</head>
+  <body>
+    <div class="topnav">
+      <a class="active" href="index.html">Home</a>
+      <a href="laws.html">laws</a>
+    </div>
+
+    <div class="row">
+      <div class="column">
+        <div class="card">
+          <img
+            src="https://www.thefa.com/-/media/thefacom-new/images/rules-and-regulations/laws-and-rules/laws-of-the-game/law-1---the-field-of-play-800x450.ashx?cw=800&ch=450&resizemode=crop&jq=100&hash=1727A88E7D858A28E5E1C46123EA921C6F14A13E"
+            alt="Jane"
+            style="width: 100%"
+          />
+          <div class="container">
+            <h2>Law 1 : The field of play</h2>
+
+            <p>
+              The field of play must be a wholly natural or, if competition
+              rules permit, a wholly artificial playing surface except where
+              competition rules permit an integrated combination of artificial
+              and natural materials (hybrid system).
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img
+            src="https://www.thefa.com/-/media/thefacom-new/images/rules-and-regulations/laws-and-rules/laws-of-the-game/law-2---the-ball-800x450.ashx?cw=800&ch=450&resizemode=crop&jq=100&hash=83D9451EC5024E6538016F378BE02CB4FBFE9DE5"
+            alt="Jane"
+            style="width: 100%"
+          />
+          <div class="container">
+            <h2>Law 2 : THE BALL</h2>
+
+            <p>
+              All balls must be:spherical,made of suitable material, of a
+              circumference of between 68 cm (27 ins) and 70 cm (28 ins), of a
+              pressure equal to 0.6 – 1.1 atmosphere (600 – 1,100g/cm2) at sea
+              level (8.5 lbs/sq in – 15.6 lbs/sq in)
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img
+            src="https://www.thefa.com/-/media/thefacom-new/images/rules-and-regulations/laws-and-rules/law-3---the-players-800x450.ashx?cw=800&ch=450&resizemode=crop&jq=100&hash=1CD0A5DE4C31DBCAC8B43043B094DA4C01DD58D5"
+            alt="Jane"
+            style="width: 100%"
+          />
+          <div class="container">
+            <h2>Law 3 : The field of play</h2>
+
+            <p>
+              A match is played by two teams, each with a maximum of eleven
+              players; one must be the goalkeeper. A match may not start or
+              continue if either team has fewer than seven players.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+-----
+    <div class="row">
+      <div class="column">
+        <div class="card">
+          <img
+            src="https://www.thefa.com/-/media/thefacom-new/images/rules-and-regulations/laws-and-rules/law-4---the-players-equipment-800x450.ashx?cw=800&ch=450&resizemode=crop&jq=100&hash=D6AF1B911356D0964284F0420F86E8CF4F4260B2"
+            alt="Jane"
+            style="width: 100%"
+          />
+          <div class="container">
+            <h2>Law 4 : Players' Equipment</h2>
+
+            <p>
+              The players must be inspected before the start of the match and substitutes before they enter the field of play.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img
+            src="https://www.thefa.com/-/media/thefacom-new/images/rules-and-regulations/laws-and-rules/laws-of-the-game/law-5---the-referee---800x450.ashx?cw=800&ch=450&resizemode=crop&jq=100&hash=671A5D880249977D9DB418138788C7756A96BB14"
+            alt="Jane"
+            style="width: 100%"
+          />
+          <div class="container">
+            <h2>Law 5 The Referee
+            </h2>
+
+            <p>
+              Each match is controlled by a referee who has full authority to enforce the Laws of the Game in connection with the match.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img
+            src="https://www.thefa.com/-/media/thefacom-new/images/rules-and-regulations/laws-and-rules/laws-of-the-game/law-6---the-other-match-officials--800x450.ashx?cw=800&ch=450&resizemode=crop&jq=100&hash=08D893EBE0A1AAE4044D528ED7E7DD1D4E508B19"
+            alt="Jane"
+            style="width: 100%"
+          />
+          <div class="container">
+            <h2>Law 6 : The Other Match Officials</h2
+            p>
+            Other match officials (two assistant referees, a fourth official, two additional assistant referees, a reserve assistant referee, a video assistant referee (VAR) and at least one assistant VAR (AVAR)) may be appointed to matches. They will assist the referee in controlling the match in accordance with the Laws of the Game but the final decision will always be taken by the referee.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+----
+    <div class="row">
+      <div class="column">
+        <div class="card">
+          <img
+            src="https://www.thefa.com/-/media/thefacom-new/images/rules-and-regulations/laws-and-rules/laws-of-the-game/law-7---the-duration-of-the-match---800x450.ashx?cw=800&ch=450&resizemode=crop&jq=100&hash=796BD75859EF80E64A080C2B45FCC5156DDE7503"
+            alt="Jane"
+            style="width: 100%"
+          />
+          <div class="container">
+            <h2>Law 7 : The Duration of the Match</h2>
+
+            <p>
+              A match lasts for two equal halves of 45 minutes which may only be reduced if agreed between the referee and the two teams before the start of the match and is in accordance with competition rules.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img
+            src="https://www.thefa.com/-/media/thefacom-new/images/rules-and-regulations/laws-and-rules/law-8---the-start-and-restart-of-play---800x450.ashx?cw=800&ch"
+            alt="Jane"
+            style="width: 100%"
+          />
+          <div class="container">
+            <h2>Law 8 : The Start and Restart of Play</h2>
+
+            <p>
+              A kick-off starts both halves of a match, both halves of extra time and restarts play after a goal has been scored. Free kicks (direct or indirect), penalty kicks, throw-ins, goal kicks and corner kicks are other restarts (see Laws 13 – 17). A dropped ball is the restart when the referee stops play and the Law does not require one of the above restarts.
+
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img
+            src="https://www.thefa.com/-/media/thefacom-new/images/rules-and-regulations/laws-and-rules/law-9---the-ball-in-and-out-of-play-800x450.ashx?cw=800&ch=450&resizemode=crop&jq=100&hash=34DC0EB83CCAD26A65CB078805D6559DBAFC8E87"
+            alt="Jane"
+            style="width: 100%"
+          />
+          <div class="container">
+            <h2>Law 2 : THE BALL</h2>
+
+            <p>
+              All balls must be:spherical,made of suitable material, of a
+              circumference of between 68 cm (27 ins) and 70 cm (28 ins), of a
+              pressure equal to 0.6 – 1.1 atmosphere (600 – 1,100g/cm2) at sea
+              level (8.5 lbs/sq in – 15.6 lbs/sq in)
+            </p>
+          </div>
+        </div>
+      </div>
+----
+      <div class="row">
+        <div class="column">
+          <div class="card">
+            <img
+              src="https://www.thefa.com/-/media/thefacom-new/images/rules-and-regulations/laws-and-rules/laws-of-the-game/law-1---the-field-of-play-800x450.ashx?cw=800&ch=450&resizemode=crop&jq=100&hash=1727A88E7D858A28E5E1C46123EA921C6F14A13E"
+              alt="Jane"
+              style="width: 100%"
+            />
+            <div class="container">
+              <h2>Law 1 : The field of play</h2>
+  
+              <p>
+                The field of play must be a wholly natural or, if competition
+                rules permit, a wholly artificial playing surface except where
+                competition rules permit an integrated combination of artificial
+                and natural materials (hybrid system).
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="card">
+            <img
+              src="https://www.thefa.com/-/media/thefacom-new/images/rules-and-regulations/laws-and-rules/law-9---the-ball-in-and-out-of-play-800x450.ashx?cw=800&ch=450&resizemode=crop&jq=100&hash=34DC0EB83CCAD26A65CB078805D6559DBAFC8E87"
+              alt="Jane"
+              style="width: 100%"
+            />
+            <div class="container">
+              <h2>Law 2 : THE BALL</h2>
+  
+              <p>
+                All balls must be:spherical,made of suitable material, of a
+                circumference of between 68 cm (27 ins) and 70 cm (28 ins), of a
+                pressure equal to 0.6 – 1.1 atmosphere (600 – 1,100g/cm2) at sea
+                level (8.5 lbs/sq in – 15.6 lbs/sq in)
+              </p>
+            </div>
+          </div>
+        </div> 
+
+        <div class="column">
+          <div class="card">
+            <img
+              src="https://www.thefa.com/-/media/thefacom-new/images/rules-and-regulations/laws-and-rules/law-9---the-ball-in-and-out-of-play-800x450.ashx?cw=800&ch=450&resizemode=crop&jq=100&hash=34DC0EB83CCAD26A65CB078805D6559DBAFC8E87"
+              alt="Jane"
+              style="width: 100%"
+            />
+            <div class="container">
+              <h2>Law 2 : THE BALL</h2>
+  
+              <p>
+                All balls must be:spherical,made of suitable material, of a
+                circumference of between 68 cm (27 ins) and 70 cm (28 ins), of a
+                pressure equal to 0.6 – 1.1 atmosphere (600 – 1,100g/cm2) at sea
+                level (8.5 lbs/sq in – 15.6 lbs/sq in)
+              </p>
+            </div>
+          </div>
+        </div>
+
+  </body>
+</html>
